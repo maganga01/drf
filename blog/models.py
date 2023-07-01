@@ -85,7 +85,6 @@ class Project(models.Model):
         image_io = BytesIO()
         image.save(image_io, format='JPEG', quality=100)
                 
-        # change the image field value to be the newly modified image value
         self.image.save(filename, ContentFile(image_io.getvalue()), save=False)
     super(Project, self).save(*args, **kwargs)
 
